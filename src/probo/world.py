@@ -43,7 +43,7 @@ class World():
                     frames=int(self.time_span/self.time_interval) + 1,
                     interval=int(self.time_interval*1000),
                     repeat=False)
-            plt.show()
+        plt.show()
 
     def one_step(self, i, elements, ax):
         while elements:
