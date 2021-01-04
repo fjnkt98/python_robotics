@@ -6,10 +6,12 @@ import math
 import world
 import ideal_robot
 import agent
+import landmark
+import map
 
 
 if __name__ == "__main__":
-    world = world.World(time_span=10.0, time_interval=1, debug=False)
+    world = world.World(time_span=10.0, time_interval=0.1, debug=False)
 
     strait_agent = agent.Agent(0.2, 0.0)
     circle_agent = agent.Agent(0.2, 10.0/180*math.pi)
@@ -29,5 +31,11 @@ if __name__ == "__main__":
     world.append(robot1)
     world.append(robot2)
     world.append(robot3)
+
+    m = map.Map()
+    m.append_landmark(landmark.Landmark(2, -2))
+    m.append_landmark(landmark.Landmark(-1, -3))
+    m.append_landmark(landmark.Landmark(3, 3))
+    world.append(m)
 
     world.draw()
